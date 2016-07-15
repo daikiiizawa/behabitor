@@ -4,10 +4,35 @@
   <title>Behabitor</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">設定(dummy)</a></li>
+  <li class="divider"></li>
+  <% if user_signed_in? %>
+      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+  <% else %>
+      <li><%= link_to 'Sign in', user_session_path %></li>
+  <% end %>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">BeHabitor</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">more_vert</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
+<% if notice %>
+    <p class="notice"><%= notice %></p>
+<% elsif alert %>
+    <p class="alert"><%= alert %></p>
+<% end %>
 <%= yield %>
 
 </body>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @habit.title %>
+</p>
+
+<p>
+  <strong>Mativation:</strong>
+  <%= @habit.mativation %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @habit.deadline %>
+</p>
+
+<p>
+  <strong>Commit:</strong>
+  <%= @habit.commit %>
+</p>
+
+<p>
+  <strong>Declaration:</strong>
+  <%= @habit.declaration %>
+</p>
+
+<%= link_to 'Edit', edit_habit_path(@habit) %> |
+<%= link_to 'Back', habits_path %>

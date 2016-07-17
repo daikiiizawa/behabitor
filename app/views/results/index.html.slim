@@ -1,0 +1,27 @@
+p#notice
+  = notice
+h1
+  | Listing Results
+table
+  thead
+    tr
+      th
+        | Type
+      th
+        | Execution time
+      th[colspan="3"]
+  tbody
+    - @results.each do |result|
+      tr
+        td
+          = result.type
+        td
+          = result.execution_time
+        td
+          = link_to 'Show', result
+        td
+          = link_to 'Edit', edit_result_path(result)
+        td
+          = link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Result', new_result_path

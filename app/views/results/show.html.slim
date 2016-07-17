@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Type:
+  = @result.type
+p
+  strong
+    | Execution time:
+  = @result.execution_time
+= link_to 'Edit', edit_result_path(@result)
+|  | 
+= link_to 'Back', results_path

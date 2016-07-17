@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title
+      | Behabitor
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
+    = csrf_meta_tags
+  body
+    ul#dropdown1.dropdown-content
+      li
+        a[href="#!"]
+          | 設定(dummy)
+      li.divider
+      - if user_signed_in?
+        li
+          = link_to 'Sign out', destroy_user_session_path, :method => :delete
+      - else
+        li
+          = link_to 'Sign in', user_session_path
+    nav
+      .nav-wrapper
+        a.brand-logo[href="#!"]
+          | BeHabitor
+        ul.right.hide-on-med-and-down
+          li
+            a.dropdown-button[href="#!" data-activates="dropdown1"]
+              i.material-icons
+                | more_vert
+    - if notice
+      p.notice
+        = notice
+    - elsif alert
+      p.alert
+        = alert
+    = yield

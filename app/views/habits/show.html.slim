@@ -1,0 +1,25 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @habit.title
+p
+  strong
+    | Mativation:
+  = @habit.mativation
+p
+  strong
+    | Deadline:
+  = @habit.deadline
+p
+  strong
+    | Commit:
+  = @habit.commit
+p
+  strong
+    | Declaration:
+  = @habit.declaration
+= link_to 'Edit', edit_habit_path(@habit)
+|  | 
+= link_to 'Back', habits_path

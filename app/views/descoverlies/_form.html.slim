@@ -1,0 +1,24 @@
+= form_for(@descoverly) do |f|
+  - if @descoverly.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@descoverly.errors.count, "error")
+        |  prohibited this descoverly from being saved:
+      ul
+        - @descoverly.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label :descovery_time
+    br
+    = f.time_select :descovery_time
+  .field
+    = f.label :type
+    br
+    = f.number_field :type
+  .field
+    = f.label :description
+    br
+    = f.text_field :description
+  .actions
+    = f.submit

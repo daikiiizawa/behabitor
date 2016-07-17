@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '4.2.0'
 # CSS Framework
 gem 'materialize-sass'
+# HTML Template
+gem 'slim'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

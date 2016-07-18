@@ -9,40 +9,7 @@ html
     = csrf_meta_tags
   body
     header
-      nav.top-nav
-        .nav-wrapper
-          a.brand-logo[href="#!"]
-            | BeHabitor
-          ul.right.hide-on-med-and-down
-            li
-              a.dropdown-button[href="#!" data-activates="dropdown1"]
-                i.material-icons
-                  | more_vert
-          a.button-collapse.top-nav.full.hide-on-large-only href="#" data-activates="slide-out"
-            i.material-icons
-              |menu
-          a.button-collapse.top-nav.full.hide-on-large-only href="#" data-activates="dropdown1"
-            i.material-icons
-              |menu2
-      .dropdown-content-container
-        ul#dropdown1.dropdown-content
-          li
-            a[href="#!"]
-              | 設定(dummy)
-          li.divider
-          - if user_signed_in?
-            li
-              = link_to 'Sign out', destroy_user_session_path, :method => :delete
-          - else
-            li
-              = link_to 'Sign in', user_session_path
-      ul#slide-out.side-nav.fixed.z-depth-1
-        li.logo
-          a.brand-logo href=root_path
-            |BeHabitor
-        li
-          a href=new_habit_path
-            |趣味の追加
+      = render 'layouts/sidebar'
     main
       - if notice
         p.notice
@@ -50,14 +17,6 @@ html
       - elsif alert
         p.alert
         = alert
-
       = yield
-
     footer.page-footer
-      h5.white-text
-        |footer-content
-      p.grey-text.text-lighten-4
-        |You can use rows and columns here to organize your footer content.
-      .footer-copyright
-        .container
-          |© 2014 Copyright Text
+      = render 'layouts/footer'

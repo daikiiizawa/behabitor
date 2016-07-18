@@ -1,0 +1,27 @@
+nav.top-nav
+  .nav-wrapper
+    a.brand-logo[href="#!"]
+      | BeHabitor
+    ul.right.hide-on-med-and-down
+      li
+        a.dropdown-button[href="#!" data-activates="dropdown1"]
+          i.material-icons
+            | more_vert
+    a.button-collapse.top-nav.full.hide-on-large-only href="#" data-activates="slide-out"
+      i.material-icons
+        |menu
+ul#slide-out.side-nav.fixed.z-depth-1
+  li.logo
+    a.brand-logo href=root_path
+      |BeHabitor
+  li
+    a href=new_habit_path
+      |趣味の追加
+.dropdown-content-container
+  ul#dropdown1.dropdown-content
+    li
+      a[href="#!"]
+        | 設定(dummy)
+    li.divider
+      li
+        = link_to 'Sign out', destroy_user_session_path, :method => :delete

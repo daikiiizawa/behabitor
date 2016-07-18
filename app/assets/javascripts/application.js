@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
+$(document).ready(function () {
+            $('.button-collapse').sideNav(
+                {
+                    menuWidth: 160,
+                    closeOnClick: true
+                }
+            );
+
+});
+
+// (function($){
+//     $(function(){
+//         $('.button-collapse').sideNav();
+//     }); // end of document ready
+// })(jQuery); // end of jQuery name space

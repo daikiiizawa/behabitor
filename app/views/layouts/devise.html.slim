@@ -14,12 +14,8 @@ html
           a.brand-logo[href="#!"]
             | BeHabitor
     main
-      - if notice
-        p.notice
-        = notice
-      - elsif alert
-        p.alert
-        = alert
-      = yield
+      .container
+        = yield
     footer.page-footer
       = render 'layouts/footer'
+    = render 'layouts/notice'

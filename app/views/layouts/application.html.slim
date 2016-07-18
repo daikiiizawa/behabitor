@@ -11,12 +11,7 @@ html
     header
       = render 'layouts/sidebar'
     main
-      - if notice
-        p.notice
-        = notice
-      - elsif alert
-        p.alert
-        = alert
       = yield
     footer.page-footer
       = render 'layouts/footer'
+    = render 'layouts/notice'

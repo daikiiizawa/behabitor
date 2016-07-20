@@ -1,1 +1,1 @@
-json.extract! @habit, :id, :title, :mativation, :deadline, :commit, :declaration, :created_at, :updated_at
+json.extract! @habit, :id, :title, :motivation, :deadline, :commit, :declaration, :created_at, :updated_at

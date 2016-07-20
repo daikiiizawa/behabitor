@@ -4,7 +4,7 @@ RSpec.describe "habits/new", type: :view do
   before(:each) do
     assign(:habit, Habit.new(
       :title => "MyText",
-      :mativation => "MyText",
+      :motivation => "MyText",
       :commit => "MyText",
       :declaration => "MyText"
     ))
@@ -15,7 +15,7 @@ RSpec.describe "habits/new", type: :view do
 
     assert_select "form[action=?][method=?]", habits_path, "post" do
 
-      assert_select "textarea#habit_mativation[name=?]", "habit[mativation]"
+      assert_select "textarea#habit_motivation[name=?]", "habit[motivation]"
 
       assert_select "textarea#habit_commit[name=?]", "habit[commit]"
 

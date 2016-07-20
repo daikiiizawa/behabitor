@@ -4,7 +4,7 @@ RSpec.describe "habits/show", type: :view do
   before(:each) do
     @habit = assign(:habit, Habit.create!(
       :title => "MyText",
-      :mativation => "MyText",
+      :motivation => "MyText",
       :commit => "MyText",
       :declaration => "MyText"
     ))

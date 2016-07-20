@@ -70,6 +70,6 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:title, :mativation, :deadline, :commit, :declaration)
+      params.require(:habit).permit(:title, :motivation, :deadline, :commit, :declaration)
     end
 end

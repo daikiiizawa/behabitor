@@ -5,13 +5,13 @@ RSpec.describe "habits/index", type: :view do
     assign(:habits, [
       Habit.create!(
         :title => "MyText",
-        :mativation => "MyText",
+        :motivation => "MyText",
         :commit => "MyText",
         :declaration => "MyText"
       ),
       Habit.create!(
         :title => "MyText",
-        :mativation => "MyText",
+        :motivation => "MyText",
         :commit => "MyText",
         :declaration => "MyText"
       )

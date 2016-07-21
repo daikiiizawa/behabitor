@@ -3,7 +3,7 @@ class CreateHabits < ActiveRecord::Migration
     create_table :habits do |t|
       t.string :title, null: false
       t.text :motivation, null: false
-      t.time :deadline, null: false
+      t.date :deadline, null: false
       t.text :commit, null: false
       t.text :declaration, null: false
 

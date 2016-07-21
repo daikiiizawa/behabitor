@@ -19,7 +19,7 @@
   .field
     = f.label :deadline
     br
-    = f.time_select :deadline
+    = f.date_field :deadline, type: :date, class: :datepicker
   .field
     = f.label :commit
     br

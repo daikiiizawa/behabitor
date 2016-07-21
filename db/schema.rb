@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20160715125159) do
   create_table "habits", force: :cascade do |t|
     t.string   "title",       null: false
     t.text     "motivation",  null: false
-    t.time     "deadline",    null: false
+    t.date     "deadline",    null: false
     t.text     "commit",      null: false
     t.text     "declaration", null: false
     t.datetime "created_at",  null: false

@@ -13,28 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20160715125159) do
 
-  create_table "actions", force: :cascade do |t|
-    t.integer  "type",         null: false
-    t.text     "title",        null: false
-    t.text     "description",  null: false
-    t.text     "precondition", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "habit_id"
-  end
-
-  add_index "actions", ["habit_id"], name: "index_actions_on_habit_id"
-
   create_table "descoverlies", force: :cascade do |t|
     t.time     "descovery_time", null: false
     t.integer  "type",           null: false
     t.string   "description",    null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "action_id"
+    t.integer  "target_id"
   end
 
-  add_index "descoverlies", ["action_id"], name: "index_descoverlies_on_action_id"
+  add_index "descoverlies", ["target_id"], name: "index_descoverlies_on_target_id"
 
   create_table "habits", force: :cascade do |t|
     t.string   "title",       null: false
@@ -54,10 +42,23 @@ ActiveRecord::Schema.define(version: 20160715125159) do
     t.time     "execution_time", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "action_id"
+    t.integer  "target_id"
   end
 
-  add_index "results", ["action_id"], name: "index_results_on_action_id"
+  add_index "results", ["target_id"], name: "index_results_on_target_id"
+
+  create_table "targets", force: :cascade do |t|
+    t.integer  "type"
+    t.text     "title"
+    t.string   "description"
+    t.string   "text"
+    t.string   "precondition"
+    t.integer  "habit_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "targets", ["habit_id"], name: "index_targets_on_habit_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

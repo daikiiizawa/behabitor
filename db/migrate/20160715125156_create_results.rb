@@ -6,9 +6,9 @@ class CreateResults < ActiveRecord::Migration
 
       t.timestamps null: false
 
-      t.references 'action', index: true
+      t.references 'target', index: true
 
-      t.foreign_key 'action', dependent: :delete
+      t.foreign_key 'target', dependent: :delete
     end
   end
 end

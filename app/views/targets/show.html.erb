@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @target.type %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @target.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @target.description %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @target.text %>
+</p>
+
+<p>
+  <strong>Precondition:</strong>
+  <%= @target.precondition %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @target.text %>
+</p>
+
+<p>
+  <strong>Habit:</strong>
+  <%= @target.habit %>
+</p>
+
+<%= link_to 'Edit', edit_target_path(@target) %> |
+<%= link_to 'Back', targets_path %>

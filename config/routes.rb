@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :habits, shallow: true do
-    resources :actions, shallow: true do
+    resources :targets, shallow: true do
       resources :descoverlies
       resources :results
     end

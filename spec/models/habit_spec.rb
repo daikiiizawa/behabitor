@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Habit, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it '全パラメータがあれば有効な状態であること'
+  it 'タイトルが入力されていないときは無効な状態であること'
+  it 'モチベーションが入力されていないときは無効な状態であること'
+  it '締め切りが入力されていないときは無効な状態であること'
+  it '成果が入力されていないときは無効な状態であること'
+  it 'ユーザと紐付いていないときは無効な状態であること'
 end

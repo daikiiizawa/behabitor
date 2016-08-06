@@ -29,5 +29,7 @@ RSpec.describe Habit, type: :model do
     habit.valid?
     expect(habit).to include('can\'t be blank')
   end
-  it 'ユーザと紐付いていないときは無効な状態であること'
+  it 'ユーザと紐付いていないときは無効な状態であること' do
+    expect(build(:habit, user: nil)).to be_invalid
+  end
 end

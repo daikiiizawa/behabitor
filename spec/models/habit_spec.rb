@@ -19,6 +19,11 @@ RSpec.describe Habit, type: :model do
     habit.valid?
     expect(habit).to include('can\'t be blank')
   end
+  it '締め切りが現在より過去の場合は無効な状態であること' do
+    habit = build(:habit, deadline: nil)
+    habit.valid?
+    expect(habit).to include('can\'t be blank')
+  end
   it '成果が入力されていないときは無効な状態であること' do
     habit = build(:habit, commit: nil)
     habit.valid?

@@ -1,12 +1,15 @@
+# frozen_string_literal: true
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  # rubocop:disable all
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '21c728355fe23d417db89c6f864c6b98651e13fe74796c527d6671460cbee15efd608d616f2cf81157672caec2b402a4ebf53bca2c4d5e77ee0517dc153a447a'
+  # rubocop:enable all
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -106,10 +109,10 @@ Devise.setup do |config|
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
   config.stretches = Rails.env.test? ? 1 : 11
-
+  # rubocop:disable all
   # Set up a pepper to generate the hashed password.
   # config.pepper = '9a843c6d8d58e5678312996641b7fe5fd28ab6b7bfc0e7686237198e86d7420c31cb37f1a5d80f46dd4fe2f5e864c32fa169825f7fe3d03810e287d22627926b'
-
+  # rubocop:enable all
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
 
@@ -275,7 +278,7 @@ end
 # layout off
 Rails.application.config.to_prepare do
   Devise::SessionsController.layout 'devise'
-  Devise::RegistrationsController.layout  proc{ |controller| user_signed_in? ? "application" : "devise" }
+  Devise::RegistrationsController.layout -> { user_signed_in? ? 'application' : 'devise' }
   Devise::ConfirmationsController.layout 'devise'
   Devise::UnlocksController.layout 'devise'
   Devise::PasswordsController.layout 'devise'

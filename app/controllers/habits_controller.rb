@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class HabitsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_habit, only: [:show, :edit, :update, :destroy]
@@ -63,13 +64,14 @@ class HabitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_habit
-      @habit = Habit.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def habit_params
-      params.require(:habit).permit(:title, :motivation, :deadline, :commit, :declaration)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_habit
+    @habit = Habit.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def habit_params
+    params.require(:habit).permit(:title, :motivation, :deadline, :commit, :declaration)
+  end
 end

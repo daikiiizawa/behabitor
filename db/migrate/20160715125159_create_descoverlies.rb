@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateDescoverlies < ActiveRecord::Migration
   def change
     create_table :descoverlies do |t|

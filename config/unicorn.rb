@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Unicornのプロセスがlistenするアドレスとポートを指定
 listen '3000'
 
@@ -22,8 +23,7 @@ stdout_path File.expand_path('../../log/behabitor_stdout.log', __FILE__)
 # USR2シグナルを受けると古いプロセスを止める。
 # 後述するが、記述しておくとNginxと連携する時に良いことがある。
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
 
   old_pid = "#{server.config[:pid]}.oldbin"
   if old_pid != server.pid
@@ -35,7 +35,6 @@ before_fork do |server, worker|
   end
 end
 
-after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+after_fork do
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 end
-

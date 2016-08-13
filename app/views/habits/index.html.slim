@@ -1,0 +1,39 @@
+p#notice
+  = notice
+h1
+  | Listing Habits
+table
+  thead
+    tr
+      th
+        | Title
+      th
+        | Motivation
+      th
+        | Deadline
+      th
+        | Commit
+      th
+        | Declaration
+      th[colspan="3"]
+  tbody
+    - @habits.each do |habit|
+      tr
+        td
+          = habit.title
+        td
+          = habit.motivation
+        td
+          = habit.deadline
+        td
+          = habit.commit
+        td
+          = habit.declaration
+        td
+          = link_to 'Show', habit
+        td
+          = link_to 'Edit', edit_habit_path(habit)
+        td
+          = link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Habit', new_habit_path

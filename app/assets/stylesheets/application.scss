@@ -3,7 +3,29 @@
  *= require_self
  */
 
-@import "materialize";
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("teal", "lighten-3") !default;
 @import 'materialize';
+
+header, main, footer {
+  padding-left: 160px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+.side-nav {
+  @extend .blue-grey, .darken-3;
+}
+main{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.side-nav li a{
+  @extend .grey-text, .text-lighten-4;
+}
+.side-nav .brand-logo {
+  @extend .blue-grey, .darken-2;
+}

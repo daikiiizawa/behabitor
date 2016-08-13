@@ -1,0 +1,33 @@
+p#notice
+  = notice
+p
+  strong
+    | Type:
+  = @target.type
+p
+  strong
+    | Title:
+  = @target.title
+p
+  strong
+    | Description:
+  = @target.description
+p
+  strong
+    | Text:
+  = @target.text
+p
+  strong
+    | Precondition:
+  = @target.precondition
+p
+  strong
+    | Text:
+  = @target.text
+p
+  strong
+    | Habit:
+  = @target.habit
+= link_to 'Edit', edit_target_path(@target)
+|  | 
+= link_to 'Back', targets_path

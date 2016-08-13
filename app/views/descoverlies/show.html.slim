@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Descovery time:
+  = @descoverly.descovery_time
+p
+  strong
+    | Type:
+  = @descoverly.type
+p
+  strong
+    | Description:
+  = @descoverly.description
+= link_to 'Edit', edit_descoverly_path(@descoverly)
+|  | 
+= link_to 'Back', descoverlies_path

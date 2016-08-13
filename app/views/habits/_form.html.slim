@@ -1,0 +1,32 @@
+= form_for(@habit) do |f|
+  - if @habit.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@habit.errors.count, "error")
+        |  prohibited this habit from being saved:
+      ul
+        - @habit.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label :title
+    br
+    = f.text_field :title
+  .field
+    = f.label :motivation
+    br
+    = f.text_area :motivation
+  .field
+    = f.label :deadline
+    br
+    = f.date_field :deadline, type: :date, class: :datepicker
+  .field
+    = f.label :commit
+    br
+    = f.text_area :commit
+  .field
+    = f.label :declaration
+    br
+    = f.text_area :declaration
+  .actions
+    = f.submit

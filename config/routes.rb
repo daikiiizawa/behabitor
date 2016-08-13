@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :habits, shallow: true do
+    resources :targets, shallow: true do
+      resources :descoverlies
+      resources :results
+    end
+  end
   devise_for :users
   root 'home#index'
 

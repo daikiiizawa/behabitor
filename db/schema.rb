@@ -11,7 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713140309) do
+ActiveRecord::Schema.define(version: 20160715125159) do
+
+  create_table "descoverlies", force: :cascade do |t|
+    t.time     "descovery_time", null: false
+    t.integer  "type",           null: false
+    t.string   "description",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "target_id"
+  end
+
+  add_index "descoverlies", ["target_id"], name: "index_descoverlies_on_target_id"
+
+  create_table "habits", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "motivation",  null: false
+    t.date     "deadline",    null: false
+    t.text     "commit",      null: false
+    t.text     "declaration", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "habits", ["user_id"], name: "index_habits_on_user_id"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "type",           null: false
+    t.time     "execution_time", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "target_id"
+  end
+
+  add_index "results", ["target_id"], name: "index_results_on_target_id"
+
+  create_table "targets", force: :cascade do |t|
+    t.integer  "type"
+    t.text     "title"
+    t.string   "description"
+    t.string   "text"
+    t.string   "precondition"
+    t.integer  "habit_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "targets", ["habit_id"], name: "index_targets_on_habit_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

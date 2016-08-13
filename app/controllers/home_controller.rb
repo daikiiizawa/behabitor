@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
-
   def index
+    return render :index if user_signed_in?
+
+    render :index_guest, layout: false
   end
 end

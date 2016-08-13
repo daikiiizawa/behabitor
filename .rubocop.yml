@@ -50,8 +50,15 @@
 AllCops:
   Exclude:
     - 'vendor/**/*'
+    - 'bin/**/*'
     - 'script/**/*'
     - 'db/schema.rb'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'config/**/*'
+    - 'Gemfile'
+    - 'Rakefile'
 
 # inherit_from
 
@@ -641,10 +648,9 @@ Style/NonNilCheck:
 
 # Offense count: 2
 # Cop supports --auto-correct.
-# http://www.rubydoc.info/github/bbatsov/rubocop/Rubocop/Cop/Style/SpaceAfterControlKeyword
-# ToDo ここが有効だと動かないバクを検証する
-#Style/SpaceAfterControlKeyword:
-#  Enabled: true
+# http://www.rubydoc.info/github/bbatsov/rubocop/Rubocop/Cop/Style/SpaceAroundKeyword`
+Style/SpaceAroundKeyword:
+  Enabled: true
 
 # Offense count: 2
 # Cop supports --auto-correct.

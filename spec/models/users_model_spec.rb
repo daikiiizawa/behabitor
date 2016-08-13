@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 describe 'MultipleEpisodesFormatter' do
   context 'ログインしている場合' do
     it 'nameをかえす' do
-      expect()
+      expect
     end
   end
 end

@@ -65,32 +65,33 @@ RSpec.describe DescoverliesController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Descoverly' do
-        expect dp
+        expect do
+          post :create, params: { descoverly: valid_attributes }, session: valid_session
+        end.to change(Descoverly, :count).by(1)
+      end
+
+      it 'assigns a newly created descoverly as @descoverly' do
         post :create, params: { descoverly: valid_attributes }, session: valid_session
-      end.to change(Descoverly, :count).by(1)
+        expect(assigns(:descoverly)).to be_a(Descoverly)
+        expect(assigns(:descoverly)).to be_persisted
+      end
+
+      it 'redirects to the created descoverly' do
+        post :create, params: { descoverly: valid_attributes }, session: valid_session
+        expect(response).to redirect_to(Descoverly.last)
+      end
     end
 
-    it 'assigns a newly created descoverly as @descoverly' do
-      post :create, params: { descoverly: valid_attributes }, session: valid_session
-      expect(assigns(:descoverly)).to be_a(Descoverly)
-      expect(assigns(:descoverly)).to be_persisted
-    end
+    context 'with invalid params' do
+      it 'assigns a newly created but unsaved descoverly as @descoverly' do
+        post :create, params: { descoverly: invalid_attributes }, session: valid_session
+        expect(assigns(:descoverly)).to be_a_new(Descoverly)
+      end
 
-    it 'redirects to the created descoverly' do
-      post :create, params: { descoverly: valid_attributes }, session: valid_session
-      expect(response).to redirect_to(Descoverly.last)
-    end
-  end
-
-  context 'with invalid params' do
-    it 'assigns a newly created but unsaved descoverly as @descoverly' do
-      post :create, params: { descoverly: invalid_attributes }, session: valid_session
-      expect(assigns(:descoverly)).to be_a_new(Descoverly)
-    end
-
-    it 're-renders the \'new\' template' do
-      post :create, params: { descoverly: invalid_attributes }, session: valid_session
-      expect(response).to render_template('new')
+      it 're-renders the \'new\' template' do
+        post :create, params: { descoverly: invalid_attributes }, session: valid_session
+        expect(response).to render_template('new')
+      end
     end
   end
 
